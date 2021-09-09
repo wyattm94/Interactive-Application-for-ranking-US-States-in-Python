@@ -1,0 +1,285 @@
+/* 
+-----
+Resource: 	Main CSS Stylesheet for fredapp
+Developer:	Wyatt Marciniak [wyattm94@gmail.com]
+-----
+ Notes:
+> padding/margin = top, right, bottom, left
+
+-----
+*/
+
+body{
+    /*zoom: 80%;*/
+	margin: 0 0 0 0;
+    background-color: rgb(80,100,120);
+}
+header{
+	margin: 2px 0 0 0; padding: 0 0 0 0;
+	height: 10%;
+	width: 100%;
+	text-align: center;
+	vertical-align: top;
+	position: center;
+	background-color: rgb(200, 200, 255);
+}
+#hpara{
+    font-size: 20px;
+}
+footer{
+    float: left; display: inline-block;
+    margin: 0 0 0 0; padding: 0 0 0 0;
+	height: 50%;
+	width: 100%;
+	text-align: center;
+	vertical-align: center;
+	position: center;
+	color: white;
+	background-color: rgb(0,0,0);
+}
+#footer_p{
+    font-size: 20px;
+}
+/* Used for float alignment - Flex page */
+.row{margin: 0 0 0 0; align-items: center;}
+.row:after{content: "";display: table; clear: both;}
+
+.appcontent{
+    margin: 1px 0 0 0;
+    padding: 0 0 0 0;
+}
+#mainp{
+    margin: 10px 0 5px 10px;
+}
+
+#mainleftP{
+	float: left;
+    display: inline-block;
+	width: 60%;
+}
+#mainmidP{
+    float: left;
+    display: inline-block;
+    width: 39%;
+}
+#sptablep{
+    float:left;
+    display:inline-block;
+}
+/*
+#mainrightP{
+	float: left;
+    display: inline-block;
+	width: 18%;
+}
+*/
+
+/* Date Range Selector */
+#daterangep{
+    float: left;
+    display: inline-block;
+    width: 100%;
+
+}
+.dpp{
+    width: 100%;
+    display: inline-block;
+    float: left;
+    margin: 0 0 0 0;
+    padding: 2px 0 0 0;
+}
+.dph{
+    font-size: 20px;
+    display: inline-block;
+    float: left;
+}
+#daterange{
+    float: left;
+    display: inline-block;
+    margin-left: 10px;
+    width: 25%;
+}
+div.DateInput.DateInput--open-down{
+    margin: 0 0 0 0;
+    padding: 0 0 0 1px;
+    width: 45%;
+    display: inline-block;
+    float: left;
+}
+div.DateRangePickerInput{
+    width: 99%;
+    display: inline-block;
+    font-size: 20px;
+    float: left;
+}
+div.DateRangePickerInput__arrow{
+    font-size: 5px;
+    width: 8%;
+    display: inline-block;
+    float: left;
+}
+
+/* Button Aread */
+/* All Button Styling */
+.btn{
+    float: left;
+    display: inline-block;
+    font-size: 20px;
+}
+.sbtn{
+    float: left;
+    display: inline-block;
+    width: 48%
+}
+#pbtn_p{
+    float: left;
+    display: inline-block;
+    width: 48%
+}
+#pddsort_p{
+    float: left;
+    display: inline-block;
+    width: 30%;
+    font-size: 20px;
+}
+#pbtn_rescore,#pbtn_restore{
+    width: 25%;
+    margin 0 10px 0 10px;
+    font-size: 20px;
+}
+#sbtn_addall,#sbtn_rmvall,#pbtn_addall,#pbtn_rmvall{
+    width: 50%;
+    height: 90%;
+    margin-top: 1px;
+    padding-top: 8px;
+    vertical-align: middle;
+}
+
+#pbtn_addall,#pbtn_rmvall{
+    float: left;
+    display: inline-block;
+    width: 48%;
+}
+
+.dd{
+    float:left;
+    display: inline-block;
+    font-size: 15px;
+    width: 100%;
+    margin-top: 1px;
+}
+#pbtn_p{
+    float: left;
+    display: inline-block;
+    width: 30%;
+}
+#paddsort_p{
+    float: left;
+    display: inline-block;
+    width: 25%;
+}
+#ddwp{
+    float: left;
+    display: inline-block;
+    width: 40%;
+}
+#ddstatesort{
+    margin-left: 5px;
+}
+#ddparamsort{}
+#ddparamweight{
+    float:left;
+    display: inline-block;
+    width: 100%;
+}
+#ddw_setp{
+    float:left;
+    display: inline-block;
+    width: 25%;
+}
+#ddw_in{
+    float:left;
+    display: inline-block;
+    width: 90%;
+    padding-top:15px;
+    margin-left: 2px;
+    margin-right: 2px;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 14px;
+
+}
+.ddw_sel{
+    float: left;
+    display: inline-block;
+    width: 25%;
+}
+.ddw_set{
+    float: left;
+    display: inline-block;
+    width: 15%;
+}
+.ddw_btn{
+    float: left;
+    display: inline-block;
+    width: 47%;
+    margin-left: 2px;
+}
+#ddw_chg,#ddw_clr{
+    float: left;
+    display: inline-block;
+    width: 48%;
+    height: 90%;
+    margin-top: 1px;
+    padding-top: 8px;
+    vertical-align: middle;
+}
+#ddw_chg:hover,#ddw_clr:hover{
+    background-color: lightgreen;
+}
+.btn:hover{
+    background-color: lightgreen;
+
+}
+
+/* For Tables */
+#sptablep{
+    width: 100%;
+}
+.tbl_header{
+    font-size: 20px;
+    text-align: center;
+}
+#colstate,#colparam{
+	float: left;
+	display: inline-block;
+}
+#colstate{
+    width: 35%;
+}
+#colparam{
+    width: 60%;
+    padding-left: 10px;
+}
+#tblp_state{
+    background-color: black;
+    width:100%;
+}
+#state_table{
+    width:100%;
+}
+#tblp_param{
+    width: 100%;
+}
+
+
+/* For Map Visualization */
+div.mapp_states{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    height: 99%;
+    width: 99%;
+    padding-down: 10px;
+    padding-up: 20px;
+}
