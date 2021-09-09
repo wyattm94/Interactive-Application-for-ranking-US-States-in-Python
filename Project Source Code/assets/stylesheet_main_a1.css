@@ -1,0 +1,100 @@
+/* 
+-----
+Resource: 	Main CSS Stylesheet for FE 550 - Assignment3 
+Developer:	Wyatt Marciniak
+Date:			2019-03-07	
+-----
+ Notes:
+> padding/margin = top, right, bottom, left
+
+
+-----
+*/
+
+header{
+	margin: 0 0 0 0; padding: 0 0 0 0;
+	height: 50%;
+	width: 100%;
+	text-align: center;
+	vertical-align: center;
+	position: center;
+	background-color: rgb(116, 188, 255);
+}
+
+.title{}
+.headpara{}
+
+.row{margin: 0 0 0 0; align-items: center;}
+.row:after{content: "";display: table; clear: both;}
+.colset1{
+	float: left; 
+	padding: 0 0 0 0; margin: 0 0 0 0;
+	font-size: 10px;
+	vertical-align: bottom;
+	display: inline-block;
+}
+
+.colset2{
+	float: left; 
+	padding: 0 0 0 0; margin: 0 0 0 0;
+	width: 25%;
+	font-size: 12px;
+	vertical-align: bottom;
+	display: inline-block;
+}
+
+.colset3{
+	float: left; 
+	padding: 0 0 0 0; margin: 0 0 0 0;
+	padding-top: 20px;
+	padding-left: 20px;
+	width: 85%;
+	font-size: 12px;
+	vertical-align: center-right;
+	display: inline-block;
+}
+
+#dd_sel1,#dd_sel2{
+	text-align: center;
+}
+
+#plot_p{
+	text-align: center;
+	vertical-align: bottom;
+	display: inline-block;
+	padding: 40px 0 0 0;
+	width: 30%;
+	height: 30%;
+}
+
+/* Adjust Buttons/Input Field for cleaner alignment */
+#t_in_p, #t_btn_p, #t_brw_p,#ac_sel_p{
+	padding: 12px 0 0 0;
+}
+
+#ac_sel_p{
+	width: 10%;
+}
+
+/* Adjust text spacing and alignment */
+#r1_text0_p{padding: 0 10px 0 1px;}
+#r1_text1_p{padding: 0 10px 0 10px;}
+#r1_text2_p,#r1_text1_1_p{padding: 0 10px 0 10px;}
+
+#r1_text0_p,#r1_text1_p,#r1_text2_p{
+	text-align: top;
+	vertical-align: top;
+	border-width: 0;
+}
+#dtag_p{
+	margin: 0 0 0 0; padding: 0 0.5px 0 0;
+	width: 30%; font-size: 5px;
+	text-align: right; vertical-align: top;
+}
+
+
+
+body{
+	margin: 0;
+    background-color: rgb(116, 188, 85);
+}
