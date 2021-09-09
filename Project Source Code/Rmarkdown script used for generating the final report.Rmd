@@ -1,0 +1,277 @@
+---
+title: "FE 550 - Team Project Final Submission"
+author: "Wyatt Marciniak, Yoseph Borai, Xiaochi Ma, Lucas Eisenberg"
+date: "May 12, 2019"
+geometry: margin=2cm
+output: 
+  pdf_document:
+    toc: yes
+---
+```{r,echo=FALSE,include=FALSE,warning=FALSE,message=FALSE}
+
+# Dependencies
+library(rmarkdown)
+library(knitr)
+library(kableExtra)
+
+# Global Chunk Options
+knitr::opts_chunk$set(warning=FALSE, 
+                      message=FALSE,
+                      results='asis',
+                      comment='',
+                      cache=TRUE,
+                      fig.align='center',
+                      fig.width=6,
+                      fig.height=6,
+                      tidy=TRUE,
+                      tidy.opts=list(blank=FALSE,
+                                     width.cutoff=85))
+
+```
+
+\newpage
+# Overview and Motivation
+This project was designed to answer the question of "Which State is the Best to Work and Live In". That is a tough question to answer, for anyone, but with the data resources available today, we can create a tool to help out just a bit. We introduce "Comparing States to Live In (Economically)"
+\newline
+```{r,echo=FALSE,out.width='95%',out.height='90%'}
+knitr::include_graphics('ref_lib/ss_landing_page.jpg')
+```
+This application holds 95 data sets that span over 9 years (2008 - 2017) and all 50 states evenly (This is approx. 717,000 data points). It allows for custom viewing controls, sorting, weighting and a map-based visualization to summarize your results. It is stable and runnable *(see 'Issues, concerns and notices' at report end). As an example of the power this application has, we offer an example run showcasing all components edited by the user, as well as rescored (by the user - button click event - discussed below). See below figure (and note the footer (bottom black bar) always tells you the current summary result of the top 5 states by score that you have NOT deselected, otherwise it skips the states until 5 are found in the proper order:
+\newline
+```{r,echo=FALSE,out.width='95%',out.height='90%'}
+knitr::include_graphics('ref_lib/ss_update_full.jpg')
+```
+
+\newpage
+# Resources
+For this application, we used 
+\href{https://www.python.org/}{\textit{\textcolor{blue}{Python}}} 
+3.7.0 / 3.7.2 and utilized the 
+\href{https://www.jetbrains.com/pycharm/}{\textit{\textcolor{blue}{PyCharm}}} 
+IDE for script writing, application design and project file managment. We used an array of standard packages as well as more advanced utilities for higher level operations (such as multi-processing for data retrival and manipulation in real-time):
+
+\begin{table}[h]
+  \begin{center}
+    \caption{Key Python Modules by Operation (Documentation is Linked)}
+    \begin{tabular}{|| r|l ||}
+      \hline
+      Operation & Dependencies 
+      \\\hline
+      Core Utilities 
+      & 
+        \href{https://docs.scipy.org/doc/}
+        {\textit{\textcolor{blue}{Numpy}}} | 
+        \href{https://docs.scipy.org/doc/}
+        {\textit{\textcolor{blue}{Scipy}}} | 
+        \href{https://certifi.io/en/latest/}
+        {\textit{\textcolor{blue}{Certifi}}} | 
+        \href{https://docs.python.org/2/library/math.html}
+        {\textit{\textcolor{blue}{Math}}}
+      \\\hline
+      Web Scraping Data Sets 
+      &    
+        \href{https://www.crummy.com/software/BeautifulSoup/bs4/doc/}
+          {\textit{\textcolor{blue}{Beautiful Soup}}} |    
+        \href{http://docs.python-requests.org/en/latest/index.html}
+          {\textit{\textcolor{blue}{Requests}}} |  
+        \href{https://docs.python.org/3/library/json.html}
+          {\textit{\textcolor{blue}{JSON (json)}}}
+      \\\hline
+      Optimizing Data Reading/Operations
+      &
+        \href{https://docs.python.org/3/library/multiprocessing.html}
+          {\textit{\textcolor{blue}{Multiprocessing}}}
+      \\\hline
+      Data Handling (fetch/clean/store/call) 
+      &
+        \href{https://pandas.pydata.org/pandas-docs/stable/}
+          {\textit{\textcolor{blue}{Pandas}}} | 
+        \href{https://openpyxl.readthedocs.io/en/stable/}
+          {\textit{\textcolor{blue}{Openpyxl}}} |
+        \href{https://docs.python.org/3/library/datetime.html}
+          {\textit{\textcolor{blue}{Datetime}}}
+      \\\hline
+      Application Design
+      &
+        \href{https://plot.ly/python/}
+          {\textit{\textcolor{blue}{Plotly}}} |
+        \href{https://dash.plot.ly/getting-started}
+          {\textit{\textcolor{blue}{Dash (Plotly)}}}
+      \\\hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+All packages listed above are open-source languages contained within the Python virtual environment and requirements.txt file found in the root of this project's source code.
+
+# Data Sets
+
+##   I.     Initial Attempts
+To create this application, we needed to find data sets that covered the 50 US States over a reasonable period of time. More importantly, those data sets needed to be diverse enough to cover a range of user preferences from specfic industries to broader statistics and indicators. We faced difficulty in finding non-economic and/or non-financial data sets due to a lack of both recorded data as well as publicly facing content to acquire. Some candidate sites (that were not used) were the 
+\href{https://www.irs.gov/}{\textit{\textcolor{blue}{IRS}}} 
+website, the 
+\href{https://www.bea.gov/}{\textit{\textcolor{blue}{BEA}}} 
+(US Bureau of Economic Analysis) and the national 
+ \href{https://www.census.gov/}{\textit{\textcolor{blue}{Census}}}
+ records. These data sets were either incomplete, too poorly maintained for implementation at this time or, most commonly, the data was static for single/current year metrics and the one that were of value, overlapped with our main data source.
+
+##  II.     FRED database API
+We sourced all of our data from the 
+\href{https://fred.stlouisfed.org/}{\textit{\textcolor{blue}{FRED}}}
+ (Federal Reserve Economic Data) database. There are over 500,000 US and foriegn data series available, but more importantly for pur project, they included state level data, across all 50 states and over a large period of time.
+\newline
+The API written for the project mostly contans wrapper functions (functions that call other functions with modifications or organize an algoorithm using other resources) that extend the core
+\href{https://research.stlouisfed.org/docs/api/fred/}{\textit{\textcolor{blue}{API}}}
+avaialble for free public use. The site allows for user downloads from the UI as well as web-scraping protocols, but the dedicated API service provides a stable, and officially established, pipeline of data in a fixed format. This is a key element to have to ensure data security, accuracy and reliability (in terms of fetching) if you can find and use one. We found monthly data to be the best frequency for realistic testing.  
+
+\newpage
+## III. API Source Code Architecture [fred_api.py (Also: app_utilities.py)]
+The Architecture was designed specifically for this application but it has the components needed to integrate into a generalized framework (future work). The core of the library is seen in the below architecture. The functionalities utilize the free API (key needed - but free) from FRED and wraps useful utilities to gather state data specifically (also accounting for overlapping date ranges, missing obervations and data that is delayed by too great a period)
+\newline
+```{r,echo=FALSE,out.width='95%',out.height='90%'}
+knitr::include_graphics('ref_lib/ss_fredapi_source_full.jpg')
+```
+
+\newpage
+## IV.  API Operation Analysis [fredrun.py]
+The main runner (script running the function/algorithm/etc...) is written as a step by step algorithm so users can review it piece by piece to follow along. The achitecture shows us the progression from acquiring the state name/abbreviation data to filtering searches in the FRED database to final aggregation and storage. See the outlined runner architecture below:   
+
+```{r,echo=FALSE,out.width='95%',out.height='90%'}
+knitr::include_graphics('ref_lib/ss_fredrun_overview.jpg')
+```
+
+\newpage
+## V.   Core Fetch, Process and Clean Operation [fredrun.py]
+The operation below is the crucial operational piece of the API algorithm operation. We can see in Phase 2 the algorithm collects search results from the FRED database directly. In Phase 3, the data sets (some states had over 1200 to themselves alone) are combined into a unique list (single data set names that are not duplicated), generalized for all state names and then compared. A summary is returned (and stored, as all the data is) which shows all unique data sets and a large True/False table of whether or not a state had that data set recorded for themselves. Finally, in phase 4 we collect a uniform set of data for each state per the overlap analysis. In the end, we compiled 95 data sets. We needed to collect annual and monthly data sets and generate evenly spaced steps of data to normalize the annual data with the monthly. By doing this, we were able to expand from about 23 data sets to the current 95. See this key segment screenshoted below:
+```{r,echo=FALSE,out.width='100%',out.height='100%'}
+knitr::include_graphics('ref_lib/ss_fredrun_fetch_iso.jpg')
+```
+
+\newpage
+## VI.  Creating the final data resources [fredrun.py]
+Here, we show the final data sets (that will be referenced for use by the application) being cleaned and created before storing. We use (.xlsx) Excel Workbooks as functional 'databases' where the sheets delimit parameters, usually. This helps manage large memory resources and with clustered data in the root we can easily call to it and populate the application with data.
+\newline
+```{r,echo=FALSE,out.width='90%',out.height='85%'}
+knitr::include_graphics('ref_lib/ss_fredrun_data0.jpg')
+```
+
+\newpage
+# Backend Framework
+The backend (root) directory is combined with my (Wyatt Marciniak) FE 800 'finapp' root directory. The dependencies are shared and I have been developing functionality for both courses simultanelously using the same parent branch of resources (or at least the pipeline - these will be seperated and only data/files pertaining to this fredapp will be included in the source folder). The root is as follows:
+\newline
+```{r,echo=FALSE,out.width='100%',out.height='80%'}
+knitr::include_graphics('ref_lib/ss_root.jpg')
+```
+The key files/directories for this application cover any/all (.xlsx) files marked with fred, us, states, etc... as well as the directories:
+\newline
+
+1. fred_warehouse/ - Holds pre-process data and reference data
+\newline
+```{r,echo=FALSE,out.width='65%',out.height='60%'}
+knitr::include_graphics('ref_lib/ss_warehouse.jpg')
+```
+2. fred_assets/ - Holds assets (CSS style sheets for design as well as this report source code/save and the ref_lib/ path to the imges loaded in this report).Shown here is the folder directory fred_assets/backups/ which is where the final, static pre-process data is stored for reference and backup if users damage current data sets being used. The fredapp/API can do this as well but backup copies ensure no issues in operation, especially if deployed and neeeding maintenance. See below:
+\newline
+```{r,echo=FALSE,out.width='75%',out.height='70%'}
+knitr::include_graphics('ref_lib/ss_backups.jpg')
+```
+
+
+# Key Runtime Elements
+
+## I. A quick summary of the Dash framework
+Dash, from Plotly, is a web-based framework for designing applications that utilize HTML, CSS and Javascript reactivity - for Python. Unlike Flask, which is designed more for actual website architecture, Dash is designed for interactive plots, graphics and applications (including dashboards). Dash integrates with Plotly natively so the power of one of the largest visualization resources across multiple lanquages is the parent to Dash so we have a ton of potential in this area. The framework(s) are 'reactive' which means that they 'listen' for 'events' to occur. To clarify further, reference how we build funtion calls in Dash:
+\newline
+```{r,echo=FALSE,out.width='100%',out.height='48%'}
+knitr::include_graphics('ref_lib/ss_callbacks.jpg')
+```
+You are seeing the Output, Input ad State parameter setup of the main updating function which handles all sorting, weighting, etc... and returns repective values to hidden div (HTML) elements. The 'why' in terms of hidden elements is explained belowed but for now, we focus on the chain. This upater returns a tuple of 3 values, to the elements with the IDs found in the 'ddo' (Output) objects. When those output targets are filled, other functions, set to take as Input or 'ddi' the attribute the data delievry affected, will then be activated to run and continue the cycle until all callbacks in the chain are done. Now the app is in 'idle' (standby, waiting for user interaction). Those ddi objects are the event 'triggers' that the functions using them are listening to. 
+
+In the above graphic, this function will be called when, for example, 'ddi('pbtn_rescore','n_clicks_timestamp')' is activated. Even if not active, they are used as pipelines but they are used here as input so that whent the button last-clicked data changes, the updater() function is called. For referencing the values of onjects but NOT having them initiate callbacks, we use 'dds' or State objects. In this case, the 'State' of an element or an element's attribute is just its value at that moment. So, if you choose a sort option you would activate the event of one of the 'dd.....sort' parameters, where their curret value is passed and used. Also, '@app.callback' is used as a decorator for runtime parsing locations and all ddo/ddi/dds elements must exist in the layout (not discussed - basic HTML/CSS is more than enough to understand the core methods) or else the appliation will fail to load and, for most users, no error tracebacks will appear. Be sure to watch out for that if you build on the code.
+
+
+\newpage
+## II. Data servicers using Multipricessing for the Application
+These are simply the functions using multiple thread pools to parallelize the work being done to improve operation lag times closer to non-existant. Please see source code for complete designs.
+\newline
+```{r,echo=FALSE,out.width='70%',out.height='75%'}
+knitr::include_graphics('ref_lib/ss_util_core_functons.jpg')
+```
+
+## III. Intialization (Application Start-up)
+At startup, the application will read the massive amount of source data from memory to hold and parse locally for faster reactivity. As stated before, multiprocessing has saved significant time in startup and data management, as we can see by this screenshot of the backend startup (running/printing in terminal while appliation is alive):
+\newline
+```{r,echo=FALSE,out.width='70%',out.height='75%'}
+knitr::include_graphics('ref_lib/ss_initialization.jpg')
+```
+\newpage
+## IV. Backend Communication - Restarts/Reloads
+This is shown to help understand the mountain of data being diplayed frim the terminal as the application is used. The outputs are, mostly, intentional tools for monitoring and testing the application (errors/tracebacks will render in the termnal as well). Below is a typical run-through of the calls in the chain when updating, etc... To decifier thus briefly, at the top, the output tells us the application called the parameter table updter, then coninued in the chain for states, sorting, weights and updates (or errors). The large number lists (and string in other places) are showing the current selected (s) versus not selected (ns) rows for a given table. Use it to monitor status of application or remove them from the source code, there is no penalty on performance. AS sais befoe, however:
+\newline
+```{r,echo=FALSE,out.width='85%',out.height='85%'}
+knitr::include_graphics('ref_lib/ss_normal_refresh_backend.jpg')
+```
+
+\newpage
+# Features
+The application hosts many user-oriented features that allow for full control and customization of the analysis tools. They integrate the backend processing power of Python with the front-end display, designed to minimze hang times while maintaining reactive behaviors. In this section, we will cover the full array of functionalities available as well as some notes on optimization in the backend.
+
+
+## I. Dynamic Data Table Controls
+```{r,echo=FALSE,out.width='100%',out.height='100%'}
+knitr::include_graphics('ref_lib/ss_tables.jpg')
+```
+The data tables are used as the primary analysis-adjustment tool. They allow the user to vary the states analyzed as well as the parameters used in the scoring, which weights to apply (if any) as well as the date range tool setting the current analysis period from 1 month to 145 months (full period).  The tables' rows are selectable, where selected rows are highlighted green and the deselected are highlighted red. The State, Ranks and Scores Table controls the map visualization, while the Parameter table controls the settings for rescoring. The Ranks serve as numerical summaries for reference with the scores becuause score data drives most of the analysis tools. 
+\newline
+```{r,echo=FALSE,out.width='75%',out.height='75%'}
+knitr::include_graphics('ref_lib/ss_date.jpg')
+```
+The date range also contibutes to the score as it sets the range of dates (rows) for averaging the scores. This is done to aggregate the results into list of 50 scores for weighting over any single or multiple time period(s). The weights are found per paramater on the respective table, and the ID column is used for selecting parameters whose weight the user wants to change (explained below)
+
+\newpage
+## II. Aggregation Buttons
+(Referencing the table graphic above) There are 3 elements under each table that are the same. These are the add-all button, clear-all button and the sort-by with asc-desc dropdown menu. They are each isolated to operations on their respective tables and add a huge benefit to quickly aggregate the data pool or wipe it clean and create specific scenarios or aspects to test. They are relativley straightforward in both operation and design. 
+
+
+
+## III. Sorting (with maintained selections)
+This is an important feature. The tables, can be sorted with the selected cells maintained in the resutls, this means that users can manipulate the data as they wish, selecting/deselecting data until they are satisfied. Reference the figures in part [I. Dynamic Data Table Controls] above to see the 2 dropdown menus next to the aggregation buttons under the tables. The user has all columns to sort by in asc/desc directions, so they can make selection choices per table and rotate the table to easily isolate the sections they are looking for. The fact that the tables maintain their selected states was tricky, especially when based in a master-updater super function, but it works well and provides an invaluable convenience feature to the user. 
+
+## IV. Re-weighting, Re-scoring and Restoring
+```{r,echo=FALSE,out.width='60%',out.height='60%'}
+knitr::include_graphics('ref_lib/ss_re_btns.jpg')
+```
+The 'Re' buttons are important here. If the application has to rescore at every update, the application would be slow and break down, especially considering multiple update triggers are simply sorting and map-related updates that have no effect on scores. In this case, the application would be doing the operations with the same results over and over again and with a cost of approx. 4-6 seconds, that cannot be allowed to heppen. For the tables and map, continous updating ismuch lighter and simpler to do. Scoring is a heavy operation (the longest currently during runtime) so the seperation of the scoring makes sense and is necessary. Restore exists to simply reset all data (in tables) back to the startup data. 
+\newline
+```{r,echo=FALSE,out.width='60%',out.height='60%'}
+knitr::include_graphics('ref_lib/ss_iso_weights.jpg')
+```
+Finally, the best for last. The user can alter the weights of the parameters as well as the subset used. The startng weights DO NOT SUM TO 100%. This is intentional. Some users may think of weights as ratios, whole numbers or just relative preferences unknown to te deveolopers. That being said, there are no bounds on the weights one can apply, so the user has complete control over what states they want, over what dates, and for any subset (or none) of the data sets with any degree of weighting desired. This is a major component and it is stable as well as it follows the rules of the tables (i.e. it acts like normal data no matter how many times you change it so the integration is seemless). To use it (see above figure), one selects the ID number from the dropdown (and they can input it by hand for quick referencing) and the current weight from the table fills the adjacent input field (currently 0). The user can edit this value however they want (as long as types do not conflict) and set the change by pressing the 'OK' button. The 'Clear' button clears all weights from th table and replaces them with 0. This was implemented for users who want to build their own story from the ground up.
+
+\newpage
+## V. Reactive Map Visualization
+```{r,echo=FALSE,out.width='80%',out.height='75%'}
+knitr::include_graphics('ref_lib/ss_map.jpg')
+```
+The map visualization shows the US geographic breakdown of states where each state is shaded to represent its respective score level relative to the range of scores. The important thing to note here is that the score (and color) range re-adjusts for the current state selection (in real time). You can also notice that un-selected states are not colored (which is done on purpose to help bound the area of selection more easily to the eye). This map helps the application capture the audience with easy to digest visual comparisons, and the customization options allow the user to alter the map indefinetly. One can also use the default utilities on the plot object (such as 'box' or 'lasso' group selections, panning/zooming and even the ability to export the plot as a static image plot).
+
+
+## VI. Notes on Optimization
+Applications, especially of the data size we are hosting, suffer from speed related issues and make the experience poor and the analysis untrustworthy. To solve this issue, we implemented multiprocssessing in both the initial application data reading as well as the rescoring operations. This helped us cut down start-up times from 60-70 seconds down to about 18-20, which is very siginificant at runtime. For scoring, considering the user will use this feature heavily, we had to speed up an operation the contained the reading, parsing and and aggregating (into score-weighted tables) over 700,000 data points across 95 tables. Those tables are also anywhere from 1 to 50 columns long (states) and 145 rows deep (datetimes - unix). Multi-processing helped tremendously by getting operational delay to, on average, under 5 seconds for a full selection set.
+
+\newpage
+# Issues, concerns and notices
+At this time, the application needs to implement these additional functionalities:
+
+1. Filters for both the State and Parameter tables (Some source code exists)
+2. Statistical analsis plots (Distributions of raw, aggregated data per state/time/param effects)
+3. Downloading data ability for users (to extract current test and results)
+4. More advanced CSS styling for the look and feel of the application on deployment
+
+In the event the application seems to hang in startup/refresh and the layout (webpage) seems half or partially rendered, a quick hack is to click the 'All' button under the State table, then press the 'Restore' button to fix the layout lag. That has actually been working very well as of this paper submission.
+
+In addition, we would also like to make a few points about the project, running it and working with the source code. Multiprocessing is tricky and we have stable, working code, but (as found in testing) repeated and continuous use, especially with repetitive data calls, rescoring or sorting, the threads that are created can conflict with running ones or endpoints could become compromised (the thread throws a 'nullpointer error' which is the action of pointers pointing to missing/bad data or the use of a null pointer, which goes to null and returns null). It should be 100% fine but in case it does happen, close down your IDE, make sure all the processes are closed in the task-manager processes window and then restart Python. To run, we recommend an IDE (so you can do both) but running the app from the command line clean and simole. The source folder should have everything needed to run the app (no need to retrieve the data again, but the cose is there if you need to). Remember to pip install -r requirements.txt into a Python Virtual Environment to have the dependencies needed to run everything. This can be done by hand as well.
+
+Otherwise, enjoy the app, code and report and please send feedback so we can improve our work. Thank you.
+
+
