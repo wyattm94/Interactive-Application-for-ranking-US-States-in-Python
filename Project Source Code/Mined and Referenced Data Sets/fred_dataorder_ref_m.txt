@@ -1,0 +1,29 @@
+unemployment rate in _state__<(jr)>_dataset_1
+all employees: mining, logging, and construction in _state__<(jr)>_dataset_2
+real trade-weighted value of the dollar for _state__<(jr)>_dataset_3
+civilian labor force in _state__<(jr)>_dataset_4
+all employees: financial activities in _state__<(jr)>_dataset_5
+all employees: state government in _state__<(jr)>_dataset_6
+all employees: manufacturing in _state__<(jr)>_dataset_7
+all employees: total nonfarm in _state__<(jr)>_dataset_8
+all employees: leisure and hospitality in _state__<(jr)>_dataset_9
+all employees: information in _state__<(jr)>_dataset_10
+all employees: local government in _state__<(jr)>_dataset_11
+all employees: retail trade in _state__<(jr)>_dataset_12
+all employees: total private in _state__<(jr)>_dataset_13
+all employees: professional and business services in _state__<(jr)>_dataset_14
+all employees: service-providing in _state__<(jr)>_dataset_15
+exports of goods: non-manufactured commodities for _state__<(jr)>_dataset_16
+all employees: wholesale trade in _state__<(jr)>_dataset_17
+all employees: government in _state__<(jr)>_dataset_18
+all employees: goods producing in _state__<(jr)>_dataset_19
+exports of goods: manufactured commodities for _state__<(jr)>_dataset_20
+all employees: education and health services in _state__<(jr)>_dataset_21
+exports of goods for _state__<(jr)>_dataset_22
+labor force participation rate for _state__<(jr)>_dataset_23
+new private housing units authorized by building permits for _state__<(jr)>_dataset_24
+new private housing units authorized by building permits: 1-unit structures for _state__<(jr)>_dataset_25
+all employees: other services in _state__<(jr)>_dataset_26
+all employees: federal government in _state__<(jr)>_dataset_27
+all employees: private service providing in _state__<(jr)>_dataset_28
+all employees: trade, transportation, and utilities in _state__<(jr)>_dataset_29

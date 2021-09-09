@@ -1,0 +1,20 @@
+all employees: manufacturing in _state__<(jr)>_dataset_1
+all employees: wholesale trade in _state__<(jr)>_dataset_2
+all employees: trade, transportation, and utilities in _state__<(jr)>_dataset_3
+all employees: leisure and hospitality in _state__<(jr)>_dataset_4
+all employees: other services in _state__<(jr)>_dataset_5
+all employees: financial activities in _state__<(jr)>_dataset_6
+all employees: goods producing in _state__<(jr)>_dataset_7
+all employees: government in _state__<(jr)>_dataset_8
+all employees: federal government in _state__<(jr)>_dataset_9
+all employees: information in _state__<(jr)>_dataset_10
+unemployment rate in _state__<(jr)>_dataset_11
+all employees: education and health services in _state__<(jr)>_dataset_12
+all employees: total private in _state__<(jr)>_dataset_13
+all employees: total nonfarm in _state__<(jr)>_dataset_14
+all employees: professional and business services in _state__<(jr)>_dataset_15
+all employees: private service providing in _state__<(jr)>_dataset_16
+real trade-weighted value of the dollar for _state__<(jr)>_dataset_17
+all employees: retail trade in _state__<(jr)>_dataset_18
+all employees: service-providing in _state__<(jr)>_dataset_19
+civilian labor force in _state__<(jr)>_dataset_20

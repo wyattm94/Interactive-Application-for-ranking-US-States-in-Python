@@ -1,0 +1,76 @@
+90% confidence interval lower bound of estimate of median household income for _state__<(jr)>_dataset_1
+all employees: manufacturing in _state__<(jr)>_dataset_2
+all employees: mining, logging, and construction in _state__<(jr)>_dataset_3
+state government tax collections, alcoholic beverages - selective sales taxes in _state__<(jr)>_dataset_4
+resident population in _state__<(jr)>_dataset_5
+rental vacancy rate for _state__<(jr)>_dataset_6
+real total gross domestic product for _state__<(jr)>_dataset_7
+real median household income in _state__<(jr)>_dataset_8
+real gross domestic product by industry: transportation and utilities for _state__<(jr)>_dataset_9
+real gross domestic product by industry: trade for _state__<(jr)>_dataset_10
+real gross domestic product by industry: private industries: wholesale trade for _state__<(jr)>_dataset_11
+real gross domestic product by industry: private industries: utilities for _state__<(jr)>_dataset_12
+real gross domestic product by industry: private industries: transportation and warehousing for _state__<(jr)>_dataset_13
+real gross domestic product by industry: private industries: retail trade for _state__<(jr)>_dataset_14
+real gross domestic product by industry: private industries: professional and business services for _state__<(jr)>_dataset_15
+state government tax collections, occupation and business licenses in _state__<(jr)>_dataset_16
+gross domestic product by industry: private industries: finance, insurance, real estate, rental, and leasing: real estate and rental and leasing for _state__<(jr)>_dataset_17
+all employees: government in _state__<(jr)>_dataset_18
+gross domestic product by industry: private goods-producing industries for _state__<(jr)>_dataset_19
+estimated percent of people of all ages in poverty for _state__<(jr)>_dataset_20
+estimated percent of people age 0-17 in poverty for _state__<(jr)>_dataset_21
+estimate of people under age 5 in poverty for _state__<(jr)>_dataset_22
+total gross domestic product for _state__<(jr)>_dataset_23
+estimate of people of all ages in poverty in _state__<(jr)>_dataset_24
+estimate of median household income for _state__<(jr)>_dataset_25
+state government tax collections, total taxes in _state__<(jr)>_dataset_26
+state government tax collections, total selective sales taxes in _state__<(jr)>_dataset_27
+state government tax collections, total sales and gross receipts taxes in _state__<(jr)>_dataset_28
+state government tax collections, tobacco products - selective sales taxes in _state__<(jr)>_dataset_29
+all employees: private service providing in _state__<(jr)>_dataset_30
+per capita personal consumption expenditures: services for _state__<(jr)>_dataset_31
+per capita personal consumption expenditures: services: financial services and insurance for _state__<(jr)>_dataset_32
+per capita personal consumption expenditures: services: food services and accommodations for _state__<(jr)>_dataset_33
+per capita personal consumption expenditures: services: health care for _state__<(jr)>_dataset_34
+per capita personal consumption expenditures: services: household consumption expenditures for services for _state__<(jr)>_dataset_35
+per capita personal consumption expenditures: services: housing and utilities for _state__<(jr)>_dataset_36
+per capita personal consumption expenditures: total for _state__<(jr)>_dataset_37
+per capita personal income in _state__<(jr)>_dataset_38
+personal consumption expenditures: goods for _state__<(jr)>_dataset_39
+personal consumption expenditures: goods: durable goods: furnishings and durable household equipment for _state__<(jr)>_dataset_40
+personal consumption expenditures: goods: durable goods: motor vehicles and parts for _state__<(jr)>_dataset_41
+personal consumption expenditures: goods: durable goods: other durable goods for _state__<(jr)>_dataset_42
+personal consumption expenditures: nondurable goods: clothing and footwear for _state__<(jr)>_dataset_43
+personal consumption expenditures: nondurable goods: food and beverages purchased for off-premises consumption for _state__<(jr)>_dataset_44
+personal consumption expenditures: nondurable goods: gasoline and other energy goods for _state__<(jr)>_dataset_45
+personal consumption expenditures: services for _state__<(jr)>_dataset_46
+personal consumption expenditures: services: final consumption expenditures of nonprofit institutions serving households: gross output of nonprofit institutions for _state__<(jr)>_dataset_47
+personal consumption expenditures: services: food services and accommodations for _state__<(jr)>_dataset_48
+personal consumption expenditures: services: health care for _state__<(jr)>_dataset_49
+personal consumption expenditures: services: housing and utilities for _state__<(jr)>_dataset_50
+personal consumption expenditures: total for _state__<(jr)>_dataset_51
+poverty universe, all ages for _state__<(jr)>_dataset_52
+poverty universe, age 0-17 for _state__<(jr)>_dataset_53
+per capita personal consumption expenditures: nondurable goods: gasoline and other energy goods for _state__<(jr)>_dataset_54
+per capita personal consumption expenditures: nondurable goods: food and beverages purchased for off-premises consumption for _state__<(jr)>_dataset_55
+all employees: service-providing in _state__<(jr)>_dataset_56
+real gross domestic product by industry: private industries: finance, insurance, real estate, rental, and leasing: real estate and rental and leasing for _state__<(jr)>_dataset_57
+per capita personal consumption expenditures: nondurable goods: clothing and footwear for _state__<(jr)>_dataset_58
+per capita personal consumption expenditures: goods: durable goods for _state__<(jr)>_dataset_59
+all employees: total nonfarm in _state__<(jr)>_dataset_60
+per capita personal consumption expenditures: goods: durable goods: furnishings and durable household equipment for _state__<(jr)>_dataset_61
+per capita personal consumption expenditures: goods: durable goods: motor vehicles and parts for _state__<(jr)>_dataset_62
+per capita personal consumption expenditures: goods: durable goods: recreational goods and vehicles for _state__<(jr)>_dataset_63
+quantity indexes for total real gross domestic product by industry for _state__<(jr)>_dataset_64
+per capita personal consumption expenditures: nondurable goods for _state__<(jr)>_dataset_65
+gross domestic product by industry: transportation and utilities for _state__<(jr)>_dataset_66
+gross domestic product by industry: private industries: retail trade for _state__<(jr)>_dataset_67
+gross domestic product by industry: private industries: utilities for _state__<(jr)>_dataset_68
+gross domestic product by industry: private industries: wholesale trade for _state__<(jr)>_dataset_69
+gross domestic product by industry: private services-providing industries for _state__<(jr)>_dataset_70
+gross domestic product by industry: trade for _state__<(jr)>_dataset_71
+home vacancy rate for _state__<(jr)>_dataset_72
+homeownership rate for _state__<(jr)>_dataset_73
+median household income in _state__<(jr)>_dataset_74
+gross domestic product by industry: private industries: professional and business services: professional, scientific, and technical services for _state__<(jr)>_dataset_75
+90% confidence interval lower bound of estimate of people under age 5 in poverty for _state__<(jr)>_dataset_76
