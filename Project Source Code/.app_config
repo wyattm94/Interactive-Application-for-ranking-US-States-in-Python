@@ -1,0 +1,13 @@
+path, warehouse, warehouse/
+path, logfile, warehouse_log.xlsx
+_
+user, **Required Username**, **Required Password**
+user, **Required Username**, **Required Password**
+_
+flag, backend_ok, F
+_
+opts, use_cache, T
+opts, repo_onopen, F
+_
+ctrl, update_time, 1
+_
