@@ -1,0 +1,269 @@
+/* 
+-----
+Resource: 	Main CSS Stylesheet for map_viz
+Developer:	Wyatt Marciniak [wyattm94@gmail.com]
+Created:		2019-03-28
+Updated:		2019-04-04
+-----
+ Notes:
+> padding/margin = top, right, bottom, left
+
+
+-----
+*/
+
+body{
+    /*zoom: 80%;*/
+	margin: 0 0 0 0;
+    background-color: rgb(80,100,120);
+}
+header{
+	margin: 2px 0 0 0; padding: 0 0 0 0;
+	height: 10%;
+	width: 100%;
+	text-align: center;
+	vertical-align: top;
+	position: center;
+	background-color: rgb(200, 200, 255);
+}
+footer{
+    float: left; display: inline-block;
+    margin: 0 0 0 0; padding: 0 0 0 0;
+	height: 50%;
+	width: 100%;
+	text-align: center;
+	vertical-align: center;
+	position: center;
+	color: white;
+	background-color: rgb(0,0,0);
+}
+
+.appcontent{
+    margin: 1px 0 0 0;
+    padding: 0 0 0 0;
+}
+
+/* Used for float alignment - Flex page */
+.row{margin: 0 0 0 0; align-items: center;}
+.row:after{content: "";display: table; clear: both;}
+
+#main_content{
+    margin: 10px 0 5px 10px;
+}
+
+.dpp{
+    width: 100%;
+    display: inline-block;
+    float: left;
+    margin: 0 0 0 0;
+    padding: 2px 0 0 0;
+}
+.dph{
+    font-size: 20px;
+    display: inline-block;
+    float: left;
+}
+#param_input_h{
+    float: none;
+    display: block;
+    text-align: center;
+    position: relative;
+    font-size: 30px;
+}
+#param_input_p{
+    width: 25%;
+    margin: 0 0 0 0;
+    padding: 0 5px 10px 5px;
+    display: inline-block;
+    float: left;
+    background-color: rgb(115,175,192);
+}
+
+#dataselect, #daterange #statselect, #orderbyselect, #ascdescselect{
+    float: left;
+    display: inline-block;
+    vertical-align: center;
+    font-size: 20px;
+
+}
+
+/* For Data Set Selector*/
+#dataselect{
+    width: 77%;
+    display: inline-block;
+    float: left;
+    font-size: 12px;
+}
+div.Select-contol{
+    width: 100%;
+    vertical-align: center;
+}
+
+/* For Date Range Picker */
+#daterange{
+float: left;
+display: inline-block;
+margin-left: 10px;
+width: 67%;
+}
+div.DateInput.DateInput--open-down{
+    margin: 0 0 0 0;
+    padding: 0 0 0 1px;
+    width: 45%;
+    display: inline-block;
+    float: left;
+
+}
+div.DateRangePickerInput{
+    width: 99%;
+    display: inline-block;
+    font-size: 20px;
+    float: left;
+}
+div.DateRangePickerInput__arrow{
+    font-size: 5px;
+    width: 8%;
+    display: inline-block;
+    float: left;
+
+}
+
+/* For Stat Selector */
+#statselect{
+    padding: 0 0 0 40px;
+    float: left;
+    display: inline-block;
+    width: 40%;
+}
+
+/* For OrderBy and Asc/Desc Selectors */
+#orderbyselect, #ascdescselect{
+    font-size: 20px;
+    padding: 0 0 0 25px;
+}
+
+#updater{
+    width: 100%;
+    height: 75px;
+    margin-top: 10px;
+    /*vertical-align: center;*/
+    text-align: center;
+    position:center;
+    vertical-align: center;
+    font-size: 40px;
+}
+#updater:hover, #b_reset:hover, #b_download:hover{
+    background-color: green;
+}
+
+#dpbtn_reset_p, #dpbtn_download_p{
+    width: 45%;
+    height: 80px;
+    text-align: center;
+    vertical-align: center;
+    font-size: 20px;
+    float: left;
+    display: inline-block;
+    margin: 5px 5px 5px 5px;
+}
+#b_reset,#b_download{
+    width:100%;
+    height:100%;
+}
+
+
+/* -- Right Main Content -- */
+#right_main_content{
+    width: 72%;
+    padding: 0 10px 10px 10px;
+    float: left;
+    display: inline-block;
+}
+
+/* For Map Visualization */
+#rmc_map{
+    float: left;
+    display: inline-block;
+    width: 52%;
+}
+div.the_map_p{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    height: 99%;
+    width: 99%;
+    padding-down: 10px;
+}
+
+/* For Data Table */
+#rmc_table{
+    float: left;
+    display: inline-block;
+    width: 46%;
+    padding: 0 0 0 5px;
+}
+.the_table_p{
+    font-size: 11px;
+}
+
+.rmb{
+    float: left;
+    display: inline-block;
+    margin: 20px 10px 10px 10px;
+    width: 22%;
+    vertical-align: center;
+}
+#h_rmb_p{
+    float: left;
+    display: inline-block;
+    vetical-align: center;
+    margin: 5px 10px 5px 10px;
+}
+#rbh{
+    font-size: 25px;
+}
+
+
+#b_draw,#b_dchg,#b_dnchg{
+    height: 100%;
+    width: 100%;
+}
+/*
+#rmb_rawp,#b_draw{
+    margin-left: px;
+    margin-right: 20px;
+}
+#rmb_chgp, #b_dchg,#rmb_nchgp,#b_dnchg{
+    margin-left: 20px;
+}
+*/
+
+#h_hist_dmod{
+    float: left;
+    display: inline-block;
+    padding: 10px 0 0 0;
+    width: 40%;
+}
+#histdatamod{
+    float: left;
+    display: inline-block;
+    width: 40%;
+}
+
+
+/* -- Sub Row 1 -- */
+
+#subrow1{
+    width: 100%;
+    display: inline-block;
+    position: center;
+    padding: 10px 2px 2px 2px;
+}
+.sub1{
+    float: left; display: inline-block;
+    width: 32%;
+    margin: 0 5px 0 5px;
+}
+
+
+
+
