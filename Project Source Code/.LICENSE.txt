@@ -1,0 +1,8 @@
+NOTICE: All code written for, within and/or by this project is to be considered as CLOSED SOURCE code. Sole ownership of all source code including the structure, design, implementation, use and annotation belongs to the Author/Maintainer Wyatt Marciniak. The code (etc...) is NOT open source and any copying, distributing, reusing, altering, or otherwise sharing, storing or publishing is strictly prohibited for unauthorized individuals. Express, written and signed permission must be obtained by the author to use this code in any capacity beyond Special Clause exceptions (if given).
+
+Special Clause: FE 550 - Assignment 3
+	- Limit: Strictly Read-Only Review and Interaction for sole purpose of grading/peer reviews
+	+ Allow: Review by the Proffesor and T.A.(s)
+	+ Allow: Review by assigned peers (peer reviews)
+
+Copyright (C) 2018 - 2021 by Wyatt Marciniak (Author/Maintainer) - [wyattm94@gmail.com]
