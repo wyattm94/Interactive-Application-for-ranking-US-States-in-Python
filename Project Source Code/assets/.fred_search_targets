@@ -1,0 +1,10 @@
+id
+title
+frequency
+units
+seasonal_adjustment
+popularity
+group_popularity
+observation_start
+observation_end
+last_updated
